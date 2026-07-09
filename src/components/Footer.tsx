@@ -77,12 +77,22 @@ export default function Footer() {
             <h4 className="font-heading font-semibold text-brand-dark mb-4 text-sm tracking-wider uppercase">Connect</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#" className="text-brand-gray-muted hover:text-brand-yellow transition-colors text-sm">
+                <a 
+                  href="https://www.instagram.com/hivelabs.co.in?igsh=ZnZzZ2o5cmd6aTJn" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-gray-muted hover:text-brand-yellow transition-colors text-sm"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="text-brand-gray-muted hover:text-brand-yellow transition-colors text-sm">
+                <a 
+                  href="https://www.linkedin.com/company/hivelabs-co/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-brand-gray-muted hover:text-brand-yellow transition-colors text-sm"
+                >
                   LinkedIn
                 </a>
               </li>

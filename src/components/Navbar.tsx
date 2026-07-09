@@ -30,10 +30,10 @@ export default function Navbar() {
 
   const items: NavItem[] = [
     { name: "Home", url: "/" },
+    { name: "Our Projects", url: "/#our-work" },
     { name: "About Us", url: "/#our-story" },
     { name: "Services", url: "/#services" },
     { name: "Testimonial", url: "/#testimonials" },
-    { name: "Our Projects", url: "/#our-work" },
     { name: "Contact Us", url: "/#contact" },
   ];
 
@@ -54,7 +54,7 @@ export default function Navbar() {
               className="flex items-center gap-2 group"
             >
               <Image 
-                src="/logo.png" 
+                src="/newlogo.png" 
                 alt="HiveLabs Logo" 
                 width={200} 
                 height={60} 
@@ -63,7 +63,6 @@ export default function Navbar() {
               />
             </Link>
           </div>
-
           {/* Center: Floating Navbar (Links + CTA) */}
           <div 
             className={cn(

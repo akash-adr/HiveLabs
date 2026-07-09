@@ -252,10 +252,10 @@ export default function ContactSection() {
             <div className="bg-white border border-black/5 p-8 rounded-3xl shadow-sm">
               <h3 className="text-xl font-heading font-bold text-brand-dark mb-6">Connect With Us</h3>
               <div className="flex gap-4">
-                <a href="#" className="w-12 h-12 rounded-full bg-brand-gray-light flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors group">
+                <a href="https://www.instagram.com/hivelabs.co.in?igsh=ZnZzZ2o5cmd6aTJn" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-brand-gray-light flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors group">
                   <svg className="w-5 h-5 text-brand-gray-muted group-hover:text-brand-dark transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 </a>
-                <a href="#" className="w-12 h-12 rounded-full bg-brand-gray-light flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors group">
+                <a href="https://www.linkedin.com/company/hivelabs-co/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-brand-gray-light flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors group">
                   <svg className="w-5 h-5 text-brand-gray-muted group-hover:text-brand-dark transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                 </a>
               </div>

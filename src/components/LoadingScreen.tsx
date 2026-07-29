@@ -217,12 +217,10 @@ export default function LoadingScreen() {
 
             {/* Logo */}
             <div
-              className="relative flex items-center justify-center rounded-2xl overflow-hidden"
+              className="relative flex items-center justify-center"
               style={{
                 width: 100,
                 height: 100,
-                background: "rgba(0,0,0,0.02)",
-                border: "1px solid rgba(0,0,0,0.08)",
               }}
             >
               <Image

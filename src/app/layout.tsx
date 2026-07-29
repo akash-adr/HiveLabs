@@ -11,7 +11,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "HiveLabs | Web Design & Growth",
+  title: "HiveLabs",
   description: "Websites That Build Trust. Experiences That Drive Growth.",
 };
 

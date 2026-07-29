@@ -1,41 +1,40 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Star } from "lucide-react"
 
 export default function Testimonials() {
   // PLACEHOLDER CONTENT: Replace with real client quotes
   const testimonials = [
     {
       quote: "HiveLabs completely transformed our online presence. The new website is not only beautiful but it actually converts visitors into leads.",
-      name: "Sarah Jenkins",
-      role: "CEO, TechFlow",
+      name: "Mr. A",
+      role: "CEO, Tech Startup",
     },
     {
       quote: "The attention to detail and level of communication was outstanding. They really understood our brand and delivered beyond our expectations.",
-      name: "Marcus Chen",
-      role: "Founder, Studio Nine",
+      name: "Mr. B",
+      role: "Founder, Creative Studio",
     },
     {
       quote: "Our social media engagement has doubled since we started working with HiveLabs. They know exactly how to capture an audience.",
-      name: "Emma Williams",
-      role: "Marketing Director, Bloom",
+      name: "Mrs. C",
+      role: "Marketing Director",
     },
     {
       quote: "The Hive Complete package was exactly what we needed to launch our startup. Branding, web, social—all handled perfectly.",
-      name: "David Ross",
-      role: "Co-founder, NextGen",
+      name: "Mr. D",
+      role: "Co-founder, E-commerce Brand",
     },
     // Duplicate for seamless loop
     {
       quote: "HiveLabs completely transformed our online presence. The new website is not only beautiful but it actually converts visitors into leads.",
-      name: "Sarah Jenkins",
-      role: "CEO, TechFlow",
+      name: "Mr. A",
+      role: "CEO, Tech Startup",
     },
     {
       quote: "The attention to detail and level of communication was outstanding. They really understood our brand and delivered beyond our expectations.",
-      name: "Marcus Chen",
-      role: "Founder, Studio Nine",
+      name: "Mr. B",
+      role: "Founder, Creative Studio",
     },
   ]
 
@@ -61,15 +60,9 @@ export default function Testimonials() {
               key={index} 
               className="w-[350px] md:w-[450px] p-8 rounded-3xl bg-white/70 backdrop-blur-xl border border-black/5 shadow-sm flex-shrink-0"
             >
-              <div className="flex gap-1 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-brand-yellow text-brand-yellow" />
-                ))}
-              </div>
               <p className="text-brand-dark text-lg mb-8 italic">"{testimonial.quote}"</p>
               <div>
                 <h4 className="font-bold text-brand-dark">{testimonial.name}</h4>
-                <p className="text-sm text-brand-gray-muted">{testimonial.role}</p>
               </div>
             </div>
           ))}

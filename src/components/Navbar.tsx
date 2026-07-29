@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
@@ -28,14 +28,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const items: NavItem[] = [
-    { name: "Home", url: "/" },
-    { name: "Our Projects", url: "/#our-work" },
-    { name: "About Us", url: "/#our-story" },
-    { name: "Services", url: "/#services" },
-    { name: "Testimonial", url: "/#testimonials" },
-    { name: "Contact Us", url: "/#contact" },
+  const items = [
+    { name: "Home",         anchor: null },
+    { name: "Our Projects", anchor: "animated-websites" },
+    { name: "About Us",     anchor: "our-story" },
+    { name: "Services",     anchor: "services" },
+    { name: "Contact Us",   anchor: "contact" },
+    { name: "Our Founders", anchor: "founders" },
   ];
+
+  const handleNav = useCallback((anchor: string | null) => {
+    if (!anchor) {
+      window.scrollTo({ top: 0, behavior: "smooth" })
+    } else {
+      document.getElementById(anchor)?.scrollIntoView({ behavior: "smooth" })
+    }
+  }, [])
 
   return (
     <nav
@@ -49,8 +57,12 @@ export default function Navbar() {
           
           {/* Left: Logo */}
           <div className="flex-1 flex items-center justify-start pointer-events-auto">
-            <Link
+            <a
               href="/"
+              onClick={(e) => {
+                e.preventDefault()
+                window.location.reload()
+              }}
               className="flex items-center gap-2 group"
             >
               <Image 
@@ -61,7 +73,7 @@ export default function Navbar() {
                 className="h-10 md:h-12 w-auto object-contain transform transition-transform group-hover:scale-105 drop-shadow-sm origin-left" 
                 priority
               />
-            </Link>
+            </a>
           </div>
           {/* Center: Floating Navbar (Links + CTA) */}
           <div 
@@ -78,13 +90,13 @@ export default function Navbar() {
             {/* Nav Links */}
             <div className="flex items-center gap-0.5 px-2">
               {items.map((item) => (
-                <Link
+                <button
                   key={item.name}
-                  href={item.url!}
+                  onClick={() => handleNav(item.anchor)}
                   className="px-4 py-2 rounded-full text-sm font-medium text-brand-dark hover:bg-black/5 transition-all duration-200"
                 >
                   {item.name}
-                </Link>
+                </button>
               ))}
             </div>
 

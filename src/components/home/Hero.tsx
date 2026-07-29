@@ -54,7 +54,6 @@ export default function Hero() {
     offset: ["start start", "end start"],
   })
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "15%"])
-  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   const stagger = {
     hidden: { opacity: 0 },
@@ -75,62 +74,36 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex flex-col overflow-hidden"
+      className="relative min-h-[45vh] flex flex-col overflow-hidden"
     >
-      {/* ─── Full background image with parallax ─── */}
-      <motion.div style={{ y: imgY }} className="absolute inset-0 -z-20">
-        <Image
-          src="/hero.jpeg"
-          alt="HiveLabs Hero Background"
-          fill
-          priority
-          className="object-cover object-center"
-          sizes="100vw"
-        />
-      </motion.div>
-
-      {/* ─── Overlays to keep text readable ─── */}
-      {/* Left-heavy white gradient so headline pops */}
-      <div
-        className="absolute inset-0 -z-10 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(105deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 30%, rgba(255,255,255,0.60) 55%, rgba(255,255,255,0.10) 75%, rgba(255,255,255,0.0) 100%)",
-        }}
-      />
-      {/* Bottom fade into white for smooth transition to next section */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-40 -z-10 pointer-events-none"
-        style={{
-          background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.95))",
-        }}
-      />
 
       {/* ─── Hero content ─── */}
-      <motion.div style={{ opacity }} className="flex-1 flex flex-col">
-        <div className="flex-1 flex items-center container mx-auto px-4 sm:px-6 lg:px-8 pt-36 pb-16">
+      <motion.div className="flex-1 flex flex-col">
+        <div className="flex-1 flex items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 text-center">
           <motion.div
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="max-w-2xl"
+            className="max-w-4xl flex flex-col items-center"
           >
             {/* Eyebrow */}
-            <motion.div variants={fadeUp} className="flex items-center gap-4 mb-8">
+            <motion.div variants={fadeUp} className="flex items-center justify-center gap-4 mb-8">
               <span className="block w-10 h-px bg-brand-yellow" />
-              <span className="text-sm font-bold uppercase tracking-[0.2em] text-brand-dark/70">
+              <span className="text-base font-bold uppercase tracking-[0.2em] text-brand-dark/70">
                 Welcome to{" "}
               </span>
               <span
-                className="text-sm font-black uppercase tracking-[0.2em]"
+                className="text-base font-black uppercase tracking-[0.2em]"
                 style={{
                   background: "linear-gradient(90deg, #fdb906 0%, #d97706 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
                 }}
               >
                 HiveLabs
               </span>
+              <span className="block w-10 h-px bg-brand-yellow" />
             </motion.div>
 
             {/* Giant headline */}
@@ -169,7 +142,7 @@ export default function Hero() {
             {/* Subheading */}
             <motion.p
               variants={fadeUp}
-              className="mt-8 max-w-md text-base md:text-lg text-brand-gray-muted leading-relaxed"
+              className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-brand-gray-muted leading-relaxed"
             >
               From strategy and branding to modern websites and social media, we create digital experiences that help businesses{" "}
               <span className="font-semibold text-brand-dark">stand out</span>,{" "}
@@ -180,7 +153,7 @@ export default function Hero() {
             {/* CTA row */}
             <motion.div
               variants={fadeUp}
-              className="mt-10 flex flex-col sm:flex-row items-start gap-4"
+              className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link
                 href="/#contact"
@@ -193,13 +166,15 @@ export default function Hero() {
                 <ArrowUpRight className="relative z-10 w-4 h-4 text-white group-hover:text-brand-dark group-hover:rotate-12 transition-all duration-300" />
               </Link>
 
-              <Link
-                href="/work"
+              <button
+                onClick={() => {
+                  document.getElementById("animated-websites")?.scrollIntoView({ behavior: "smooth" })
+                }}
                 className="group inline-flex items-center gap-2 px-8 py-4 rounded-full border border-black/15 bg-white/70 backdrop-blur-sm text-brand-dark font-semibold text-sm tracking-wide hover:border-brand-yellow/60 hover:bg-brand-yellow/5 transition-all duration-300"
               >
                 See Our Work
                 <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:rotate-12 transition-all duration-300" />
-              </Link>
+              </button>
             </motion.div>
           </motion.div>
         </div>

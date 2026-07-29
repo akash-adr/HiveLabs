@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-full flex flex-col text-foreground bg-background">
+        <LoadingScreen />
         <Navbar />
         <main className="flex-1 flex flex-col pt-[80px]">
           {children}

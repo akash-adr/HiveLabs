@@ -20,15 +20,28 @@ export default function ContactSection() {
   // Very basic faux validation state for the demo
   const [activeField, setActiveField] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate network request
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+      
+      if (res.ok) {
+        setIsSuccess(true)
+      } else {
+        alert("Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      console.error(error)
+      alert("Failed to send message.")
+    } finally {
       setIsSubmitting(false)
-      setIsSuccess(true)
-    }, 1500)
+    }
   }
 
   const inputClasses = (fieldName: string) => `
@@ -146,6 +159,7 @@ export default function ContactSection() {
                       <option value="Branding & Identity">Branding & Identity</option>
                       <option value="Social Growth">Social Growth</option>
                       <option value="Hive Complete">Hive Complete (All-in-one)</option>
+                      <option value="Others">Others</option>
                     </select>
                   </div>
 

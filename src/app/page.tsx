@@ -8,6 +8,7 @@ import AnimatedWebsites from "@/components/home/AnimatedWebsites"
 import DesignMarquee from "@/components/home/DesignMarquee"
 import OurWorkPreview from "@/components/home/OurWorkPreview"
 import ContactSection from "@/components/home/ContactSection"
+import FoundersSection from "@/components/home/FoundersSection"
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <WhyChooseUs />
       <Testimonials />
       <ContactSection />
+      <FoundersSection />
     </>
   )
 }

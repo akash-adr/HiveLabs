@@ -1,15 +1,16 @@
+import dynamic from 'next/dynamic'
 import Hero from "@/components/home/Hero"
-import OurStory from "@/components/home/OurStory"
-import ServicesOverview from "@/components/home/ServicesOverview"
-import HowItWorks from "@/components/home/HowItWorks"
-import WhyChooseUs from "@/components/home/WhyChooseUs"
-import Testimonials from "@/components/home/Testimonials"
-import AnimatedWebsites from "@/components/home/AnimatedWebsites"
-import DesignMarquee from "@/components/home/DesignMarquee"
-import OurWorkPreview from "@/components/home/OurWorkPreview"
-import ContactSection from "@/components/home/ContactSection"
-import FoundersSection from "@/components/home/FoundersSection"
 
+const OurStory = dynamic(() => import("@/components/home/OurStory"))
+const ServicesOverview = dynamic(() => import("@/components/home/ServicesOverview"))
+const HowItWorks = dynamic(() => import("@/components/home/HowItWorks"))
+const WhyChooseUs = dynamic(() => import("@/components/home/WhyChooseUs"))
+const Testimonials = dynamic(() => import("@/components/home/Testimonials"))
+const AnimatedWebsites = dynamic(() => import("@/components/home/AnimatedWebsites"))
+const DesignMarquee = dynamic(() => import("@/components/home/DesignMarquee"))
+const OurWorkPreview = dynamic(() => import("@/components/home/OurWorkPreview"))
+const ContactSection = dynamic(() => import("@/components/home/ContactSection"))
+const FoundersSection = dynamic(() => import("@/components/home/FoundersSection"))
 export default function Home() {
   return (
     <>

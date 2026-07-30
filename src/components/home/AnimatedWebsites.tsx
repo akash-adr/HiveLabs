@@ -78,8 +78,7 @@ function GridVideoTile({
     el.loop = true
     el.setAttribute("playsinline", "")
     el.setAttribute("webkit-playsinline", "")
-    el.load()
-    el.play().catch(() => {})
+    // Do not load or play on mount to prevent unnecessary network requests
   }, [])
 
   // Restart from beginning every time section comes into view
@@ -87,6 +86,8 @@ function GridVideoTile({
     const el = videoRef.current
     if (!el) return
     if (sectionVisible) {
+      // Fetch media only when intersecting
+      if (el.readyState === 0) el.load()
       el.currentTime = 0
       el.muted = true
       el.play().catch(() => {})
@@ -109,7 +110,7 @@ function GridVideoTile({
       {/* Video — properties set via ref callback for cross-browser reliability */}
       <video
         ref={setVideoRef}
-        preload="auto"
+        preload="none"
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         style={{ willChange: "transform" }}
       >

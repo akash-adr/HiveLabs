@@ -305,6 +305,7 @@ function VideoCard({ src, className }: { src: string; className?: string }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          if (video.readyState === 0) video.load()
           video.play().catch(() => {})
         } else {
           video.pause()
@@ -323,7 +324,7 @@ function VideoCard({ src, className }: { src: string; className?: string }) {
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
     >
       <source src={src} type="video/mp4" />
       <source src={src} type="video/quicktime" />
